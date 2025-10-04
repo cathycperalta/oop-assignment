@@ -100,18 +100,50 @@ public class Main {
 
                                 }
 
+
                                 System.out.println("Välj ett vapen:");
 
                                 String vapenVal = scanner.next();
-                                Vapen vapen = vapenLista.get(Integer.parseInt(vapenVal)-1);
+                                Vapen vapen = vapenLista.get(Integer.parseInt(vapenVal) - 1);
                                 spelare.setVapen(vapen);
                                 System.out.println("Du har valt vapen: " + spelare.getVapen().toString());
 
 
-
                                 break;
                             case "2":
-                                System.out.println("Du gömmer dig i en zon...");
+
+                                boolean zon = true;
+                                while (zon) {
+                                    System.out.println("Välj ett av de 4 zonerna som du vill gömma dig i: ");
+                                    System.out.println("[1] Skandinaviska skogen i norr");
+                                    System.out.println("[2] Djungeln i söder");
+                                    System.out.println("[3] Ådalen i öster");
+                                    System.out.println("[4] Bergen i väster");
+                                    System.out.println("[5] Avsluta spel");
+
+                                    String zonVal = scanner.next();
+
+                                    switch (zonVal) {
+                                        case "1":
+                                            System.out.println("Du gömmer dig i Skandinaviska skogen i norr!");
+                                            break;
+                                        case "2":
+                                            System.out.println("Du gömmer dig i Djungeln i söder!");
+                                            break;
+                                        case "3":
+                                            System.out.println("Du gömmer dig i Ådalen i öster!");
+                                            break;
+                                        case "4":
+                                            System.out.println("Du gömmer dig i Bergen i väster!");
+                                            break;
+                                        case "5":
+                                            zon = false;
+                                            knapp = false;
+                                            break;
+                                        default:
+                                            System.out.println("Ogiltigt val.");
+                                    }
+                                }
                                 break;
                             case "3":
                                 System.out.println("Spelet avslutas, tillbaka till huvudmeny!");
