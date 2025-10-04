@@ -3,8 +3,8 @@ package org.example.spel;
 import java.util.Scanner;
 
 public class Welcome {
-//En metod för rubrik och spelregler
-    public void visaRegler(){
+    //En metod för rubrik och spelregler
+    public void visaRegler() {
         System.out.println("---> Välkommen till spelet Last man standing! <---");
         System.out.println(" ");
 
@@ -22,16 +22,20 @@ public class Welcome {
         System.out.println("Lycka till och må den bästa spelaren överleva!");
         System.out.println(" ");
     }
+}
+
+
     //Metod starta spel
-        public boolean spelStart(Scanner scanner){ //Boolean metod då det är en ja eller nej fråga
+      /*  public boolean spelStart(Scanner scanner){ //Boolean metod då det är en ja eller nej fråga
             System.out.println("---Vill du starta spelet? (ja/nej)---");
             System.out.println(" ");
             String anvInput = scanner.next().trim().toLowerCase();
             return anvInput.equals("ja");//trim tar bort eventuella mellantrum, to uppecase omvandlar alla karaktärer till lower case
 
         }
+     \*
 
 
 
 
-}
+       */

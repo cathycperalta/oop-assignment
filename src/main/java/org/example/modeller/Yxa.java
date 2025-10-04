@@ -11,3 +11,4 @@ public class Yxa extends Vapen {
         System.out.println("Du hugger med " + vapenNamn + " och gör " + skada + " skada!");
     }
 }
+

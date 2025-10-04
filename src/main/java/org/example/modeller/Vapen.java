@@ -9,5 +9,11 @@ public abstract class Vapen {
         this.skada = skada;
 
     }
-public abstract void attack();
+    public abstract void attack();
+
+    @Override
+    public String toString() {
+        return vapenNamn + " ";
+    }
 }
+

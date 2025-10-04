@@ -11,3 +11,4 @@ public class Svard extends Vapen {
         System.out.println("Du svingar ditt " + vapenNamn + " och gör " + skada + " skada!");
     }
 }
+
