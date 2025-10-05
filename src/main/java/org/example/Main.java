@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.modeller.*;
 import org.example.spel.Welcome;
+import org.example.spel.SpelKontroller;
  import org.example.modeller.Vapen;
 import org.example.utils.ClearConsole;
 
@@ -26,34 +27,11 @@ public class Main {
  */
 
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-       /* System.out.println("Hello World");
-        Scanner scanner = new Scanner(System.in);
-        Welcome start = new Welcome();
-        start.visaRegler();
-         System.out.println("Spelet startar!");
-         System.out.println("Vänligen skriv in din spelares alias: ");
-         String alias = scanner.next();              // använder scanner som skickas in
-         Spelare spelare = new Spelare(alias);       // skapar spelare
-         System.out.println("Välkommen " + spelare.getName() + "!");
-         System.out.println("Alla spelare är redo. Bered dig på strid!");
-         System.out.println("3");
-         System.out.println("2");
-        System.out.println("1");                                                           
-         ClearConsole.clearConsole();                // rensar konsolen                     ;
-*/
-
 
         boolean knapp = true;
 
 
-        while(knapp) {
-            Welcome start = new Welcome();
-            start.visaRegler();
-            System.out.println("Huvudmeny\n[1] Starta spel\n[2] Avsluta spel \n[3] Återgå till spel regler.");
-            Scanner scanner = new Scanner(System.in);
-            String menyval1 = scanner.next();
+
 
             switch(menyval1) {
 
@@ -77,28 +55,10 @@ public class Main {
                     boolean spela = true;
                     while (spela) {
                         System.out.println("Spelmeny:");
-                        System.out.println("[1] Spring till vapengömman");
-                        System.out.println("[2] Göm dig i en zon");
-                        System.out.println("[3] Avsluta spelet");
-
-                        String val = scanner.next();
-                        switch (val) {
-                            case "1":
-                                System.out.println("Du springer till vapengömman...");
-
-                                List<Vapen> vapenLista = new ArrayList<>();
-                                vapenLista.add(new Yxa("Yxa", 10));
-                                vapenLista.add(new Svard("Svärd", 12));
-                                vapenLista.add(new Hammare("Hammare", 13));
-                                vapenLista.add(new Pilbage("Pilbåge", 9));
-                                vapenLista.add(new Spjut("Spjut", 14));
 
 
-                                for (int i = 0; i < vapenLista.size(); i++) {
-                                    System.out.print((i + 1) + ". " + vapenLista.get(i));
-                                    vapenLista.get(i);
+                       {
 
-                                }
 
 
                                 System.out.println("Välj ett vapen:");
@@ -106,45 +66,23 @@ public class Main {
                                 String vapenVal = scanner.next();
                                 Vapen vapen = vapenLista.get(Integer.parseInt(vapenVal) - 1);
                                 spelare.setVapen(vapen);
-                                System.out.println("Du har valt vapen: " + spelare.getVapen().toString());
+                                System.out.println("\n Du har valt vapen: " + spelare.getVapen().toString());
+                                System.out.println("");
+                                System.out.println("");
+                                System.out.println("Du blir attackerad av " + randombot + ".");
+                                System.out.println("Båda spelare är redo för strid");
+                                System.out.println("3");
+                                System.out.println("2");
+                                System.out.println("1");
+                                ClearConsole.clearConsole();
+
+                                // här vil jag ha en slumpmässig fight med användaren och botten på 50% chans. Här ska det printas ut om anv vinner eller boten. Vinner användaren, så kommer ännu en meny till. Förlorar spelaren ska det meddelas och så får man välja om man vill spela igen eller avsluta spel
+
+
 
 
                                 break;
-                            case "2":
 
-                                boolean zon = true;
-                                while (zon) {
-                                    System.out.println("Välj ett av de 4 zonerna som du vill gömma dig i: ");
-                                    System.out.println("[1] Skandinaviska skogen i norr");
-                                    System.out.println("[2] Djungeln i söder");
-                                    System.out.println("[3] Ådalen i öster");
-                                    System.out.println("[4] Bergen i väster");
-                                    System.out.println("[5] Avsluta spel");
-
-                                    String zonVal = scanner.next();
-
-                                    switch (zonVal) {
-                                        case "1":
-                                            System.out.println("Du gömmer dig i Skandinaviska skogen i norr!");
-                                            break;
-                                        case "2":
-                                            System.out.println("Du gömmer dig i Djungeln i söder!");
-                                            break;
-                                        case "3":
-                                            System.out.println("Du gömmer dig i Ådalen i öster!");
-                                            break;
-                                        case "4":
-                                            System.out.println("Du gömmer dig i Bergen i väster!");
-                                            break;
-                                        case "5":
-                                            zon = false;
-                                            knapp = false;
-                                            break;
-                                        default:
-                                            System.out.println("Ogiltigt val.");
-                                    }
-                                }
-                                break;
                             case "3":
                                 System.out.println("Spelet avslutas, tillbaka till huvudmeny!");
                                 spela = false; // lämnar spel-loopen

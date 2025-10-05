@@ -15,5 +15,9 @@ public abstract class Vapen {
     public String toString() {
         return vapenNamn + " ";
     }
+    public String getNamn() {
+        return vapenNamn;
+    }
+
 }
 
