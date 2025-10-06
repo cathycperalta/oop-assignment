@@ -1,61 +1,47 @@
 package org.example.spel;
+
 import org.example.modeller.*;
 
-import java.util.List;
 import java.util.Random;
 
-
 public class Duell {
-    private final Spelare spelare;
+
+    private final Anvandare spelare;
+    private final Bot bot;
     private final Random random = new Random();
 
-    public Duell(Spelare spelare) {
+    public Duell(Anvandare spelare, Bot bot) {
         this.spelare = spelare;
+        this.bot = bot;
     }
 
     public void starta() {
-        //skapa en slumpmässig bot
-        Bot motstandare = Bot.slumpaBot();
+        if (bot == null || !bot.isLevande()) {
+            System.out.println("Ingen levande motståndare att duellera mot.");
+            return;
+        }
 
-        //Botten väljer nu sitt vapen och gömställe slumpmässigt
-        motstandare.botVal(
-                List.of(
-                        new Yxa("Yxa", 10),
-                        new Yxa("Svärd", 12),
-                        new Yxa("Hammare", 13),
-                        new Yxa("Pilbåge", 9),
-                        new Yxa("Spjut", 14)
-
-                ),
-        List.of("Skandinaviska skogen", "Djungeln", "Ådalen", "Bergen")
-        );
-
-        System.out.println("Du du blir attackerad av " + motstandare.getAnvNamn() + "!");
+        System.out.println("\nDu blir attackerad av " + bot.getAnvNamn() + "!");
         System.out.println("Båda gör sig redo för strid...");
-
         try {
-            Thread.sleep(1000);
-            System.out.println("3...");
-            Thread.sleep(1000);
-            System.out.println("2...");
-            Thread.sleep(1000);
-            System.out.println("1...");
+            for (int i = 3; i > 0; i--) {
+                System.out.println(i + "...");
+                Thread.sleep(500);
+            }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
 
-        // 50% chans att vinna
-        boolean spelarenVinner = random.nextBoolean();
-
-        if (spelarenVinner) {
-            System.out.println("Du vann duellen mot " + motstandare.getAnvNamn() + "!");
-            motstandare.elimineras("Besegrades i duell");
-                    spelare.okaVinstPott(1_000_000); // öka spelarens pott
-        }
-        else{
-            System.out.println("Du förlorade duellen mot " +  motstandare.getAnvNamn() + "!");
+        boolean spelareVinner = random.nextBoolean(); // 50% chans
+        if (spelareVinner) {
+            System.out.println("Du vann duellen mot " + bot.getAnvNamn() + "!");
+            bot.elimineras("Besegrades i duell");
+            // Level upp endast vid stridsvinst
+            spelare.level++;
+            System.out.println("Grattis! Du har levlat upp till level " + spelare.level + "!");
+        } else {
+            System.out.println("Du förlorade duellen mot " + bot.getAnvNamn() + "!");
             spelare.elimineras("Besegrades i duell");
         }
-
     }
 }

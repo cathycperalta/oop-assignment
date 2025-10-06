@@ -8,7 +8,6 @@ public class Svard extends Vapen {
 
     @Override
     public void attack() {
-        System.out.println("Du svingar ditt " + vapenNamn + " och gör " + skada + " skada!");
+        System.out.println("Du svingar ditt " + vapenNamn + "!");
     }
 }
-

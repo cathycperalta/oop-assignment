@@ -7,17 +7,15 @@ public abstract class Vapen {
     public Vapen(String vapenNamn, int skada) {
         this.vapenNamn = vapenNamn;
         this.skada = skada;
-
     }
-    public abstract void attack();
 
-    @Override
-    public String toString() {
-        return vapenNamn + " ";
-    }
-    public String getNamn() {
+    public String getVapenNamn() {
         return vapenNamn;
     }
 
-}
+    public int getSkada() {
+        return skada;
+    }
 
+    public abstract void attack();
+}

@@ -7,8 +7,7 @@ public class Yxa extends Vapen {
     }
 
     @Override
-    public void attack () {
-        System.out.println("Du hugger med " + vapenNamn + " och gör " + skada + " skada!");
+    public void attack() {
+        System.out.println("Du svingar din " + vapenNamn + "!");
     }
 }
-

@@ -1,7 +1,5 @@
 package org.example.spel;
 
-import java.util.Scanner;
-
 public class Welcome {
     //En metod för rubrik och spelregler
     public void visaRegler() {
@@ -25,17 +23,3 @@ public class Welcome {
 }
 
 
-    //Metod starta spel
-      /*  public boolean spelStart(Scanner scanner){ //Boolean metod då det är en ja eller nej fråga
-            System.out.println("---Vill du starta spelet? (ja/nej)---");
-            System.out.println(" ");
-            String anvInput = scanner.next().trim().toLowerCase();
-            return anvInput.equals("ja");//trim tar bort eventuella mellantrum, to uppecase omvandlar alla karaktärer till lower case
-
-        }
-     \*
-
-
-
-
-       */
