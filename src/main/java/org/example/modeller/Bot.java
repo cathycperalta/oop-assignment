@@ -18,8 +18,8 @@ public class Bot extends Spelare {
             // Skapa botarna med exakt namn
             new Bot("Björn", null);
             new Bot("Jalling", null);
-            new Bot("Isadora", null);
-            new Bot("Alexa", null);
+ /*           new Bot("Isadora", null);
+            new Bot("Alexa", null);*/
         }
         return allaBottar;
     }

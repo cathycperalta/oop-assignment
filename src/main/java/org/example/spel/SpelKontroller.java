@@ -1,13 +1,8 @@
 package org.example.spel;
 
-import org.example.modeller.Spelare;
 import org.example.modeller.Anvandare;
-import org.example.modeller.Bot;
 import org.example.utils.ClearConsole;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
 import java.util.Scanner;
 
 public class SpelKontroller {
@@ -78,37 +73,6 @@ public class SpelKontroller {
                     break;
                 default:
                     System.out.println("Ogiltigt val, försök igen.");
-            }
-        }
-    }
-
-    public void naturkatastrof(Anvandare anvandare, List<Bot> bottar, List<String> zoner, Map<Spelare, String> placeringar) {
-        Random random = new Random();
-
-        if (random.nextDouble() < 0.25) {
-            String drabbadZon = zoner.get(random.nextInt(zoner.size()));
-            System.out.println("En naturkatastrof har drabbat " + drabbadZon + "!");
-
-            if (placeringar.get(anvandare) != null && placeringar.get(anvandare).equals(drabbadZon) && anvandare.isLevande()) {
-                System.out.println(anvandare.getAnvNamn() + " befann sig i zonen och har omkommit!");
-                anvandare.elimineras("Naturkatastrof");
-            }
-
-            for (Bot bot : bottar) {
-                if (placeringar.get(bot) != null && placeringar.get(bot).equals(drabbadZon) && bot.isLevande()) {
-                    System.out.println(bot.getAnvNamn() + " befann sig i zonen och har omkommit!");
-                    bot.elimineras("Naturkatastrof");
-                    anvandare.okaVinstPott(1_000_000);
-
-                    // Level börjar på 0 -> 1 första gången
-                    if (anvandare.level == 0) {
-                        anvandare.level = 1;
-                        System.out.println("Grattis! Du har levlat upp till level " + anvandare.level + "!");
-                    } else {
-                        anvandare.level++;
-                        System.out.println("Grattis! Du har levlat upp till level " + anvandare.level + "!");
-                    }
-                }
             }
         }
     }

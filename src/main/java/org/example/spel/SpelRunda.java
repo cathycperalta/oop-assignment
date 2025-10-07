@@ -27,7 +27,7 @@ public class SpelRunda {
         if (anvandare != null) {
             anvandare.setVapen(null);
             anvandare.setLevande(true);
-            anvandare.level = 0;
+            anvandare.level = 1;
             placeringar.put(anvandare, "");
         }
 
@@ -155,6 +155,17 @@ public class SpelRunda {
             List<Spelare> offer = new ArrayList<>();
             if (anvandare.isLevande() && drabbadZon.equals(placeringar.get(anvandare))) {
                 offer.add(anvandare);
+                for(Bot bot : bottar) {
+                    if (bot.isLevande()) {
+                        bot.setKapital(bot.getKapital() + 1000000);
+                    }
+                }
+            }
+
+            if(bottar.stream().anyMatch(bot -> bot.isLevande() && drabbadZon.equals(placeringar.get(bot)))) {
+                if(anvandare.isLevande()) {
+                    anvandare.setKapital(anvandare.getKapital() + 1000000);
+                }
             }
 
             for (Bot bot : bottar) {

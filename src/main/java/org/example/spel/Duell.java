@@ -38,10 +38,12 @@ public class Duell {
             bot.elimineras("Besegrades i duell");
             // Level upp endast vid stridsvinst
             spelare.level++;
+            spelare.setKapital(spelare.getKapital() + 1000000);
             System.out.println("Grattis! Du har levlat upp till level " + spelare.level + "!");
         } else {
             System.out.println("Du förlorade duellen mot " + bot.getAnvNamn() + "!");
             spelare.elimineras("Besegrades i duell");
+            bot.setKapital(bot.getKapital() + 1000000);
         }
     }
 }
